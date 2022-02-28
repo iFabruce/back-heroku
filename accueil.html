@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="affectation.css">
+    <title>Accueil</title>
+    <script src="angular.min.js"></script>
+    <script src="AccueilApp.js"></script>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="main">
+    <div id="nav-haut"></div>
+
+    <div class="container"></div>
+
+
+    <div class="card" style="float: right;width:75%;background: #ffff;height: 100vh;padding: 20px;margin-right: 2%;">
+        <h2></h2>
+        <div class="table-wrapper">
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Region</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>date</th>
+                        <th>options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in listAffectedSignalement">
+
+                        <td>{{item[0]}}
+                            <h1></h1>
+                        </td>
+                        <td>{{item[1]}}</td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[3]}}</td>
+                        <td>{{item[4]}}</td>
+                        <td><button ng-click="terminerSignalement(item[0])">Terminer</button></td>
+                        <td><button ng-click="supprimerSignalement(item[0])">Supprimer</button></td>
+                    </tr>
+                    <tbody>
+            </table>
+        </div>
+
+        <script>
+            $(function() {
+                $("#nav-haut").load("nav.html");
+            });
+            $(function() {
+                $(".container").load("nav-gauche.html");
+            });
+        </script>
+</body>
+
+</html>
